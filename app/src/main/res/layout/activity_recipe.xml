@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/Name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="16dp"
+
+        android:background="#303518"
+        android:fontFamily="sans-serif-black"
+        android:text="Dahl"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="40sp"
+        app:backgroundTint="@null" />
+
+    <ListView
+        android:id="@+id/list_view"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"/>
+
+    <ImageView
+        android:id="@+id/mainPicture"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/dahl" />
+
+    <TextView
+        android:id="@+id/mainText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non diam mattis, gravida tortor nec, cursus neque. In egestas consectetur velit eget fringilla. Quisque nec venenatis turpis. Donec ornare condimentum eros. Sed vitae nunc ac nibh blandit sagittis sed vitae risus. Morbi a tincidunt orci. Vestibulum auctor sollicitudin iaculis. Quisque eleifend venenatis ultricies. Donec pharetra accumsan felis, sed rhoncus nisi tempus eu. Nulla facilisi. Donec ut quam viverra, elementum sem eget, finibus velit.
+
+Ut hendrerit tincidunt risus, eu feugiat nulla hendrerit non. Duis facilisis lectus finibus tortor iaculis varius. Pellentesque nec pretium lorem, sit amet rhoncus sapien. Nulla tellus lectus, congue eu purus ut, volutpat rhoncus justo. Maecenas ullamcorper ante sed elementum iaculis. Cras lobortis eros dolor, in sagittis diam placerat vitae. Donec ut volutpat eros. Pellentesque pharetra magna vitae erat aliquam lobortis. Etiam mauris mauris, ullamcorper sed sollicitudin imperdiet, facilisis euismod libero. Sed ullamcorper tincidunt est, maximus viverra neque sollicitudin ut. Proin egestas justo ac vulputate ultrices."
+        />
+
+    <Button
+        android:id="@+id/btnBack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="16dp"
+
+        android:background="#303518"
+        android:text="Cofnij"
+        app:backgroundTint="@null" />
+
+
+</LinearLayout>

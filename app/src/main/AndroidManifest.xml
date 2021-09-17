@@ -18,6 +18,7 @@
         </activity>
         <activity android:name=".Shoping"></activity>
         <activity android:name=".Book"></activity>
+        <activity android:name=".Recipe"></activity>
     </application>
 
 </manifest>

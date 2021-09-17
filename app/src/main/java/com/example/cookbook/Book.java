@@ -24,9 +24,9 @@ import java.util.ArrayList;
 public class Book  extends AppCompatActivity {
 
     //array list for data
-    ArrayList<String> listCountries = new ArrayList<>();
-    ListView list_viewCountries;
-    ArrayAdapter arrayAdapterCountries;
+    ArrayList<String> listCountries = new ArrayList<>(), listRecepies = new ArrayList<>();
+    ListView list_viewCountries, list_viewRecepies;
+    ArrayAdapter arrayAdapterCountries, arrayAdapterRecepies;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,11 +43,34 @@ public class Book  extends AppCompatActivity {
                 arrayAdapterCountries.notifyDataSetChanged();
             }
         });
-
+        /*
+        List view handling For Sorting by countries
+         */
         list_viewCountries = findViewById(R.id.listCountries);
         arrayAdapterCountries = new ArrayAdapter(Book.this, android.R.layout.simple_list_item_1, listCountries);
         list_viewCountries.setAdapter(arrayAdapterCountries);
 
+        list_viewCountries.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                listRecepies.add("Dahl");
+                arrayAdapterRecepies.notifyDataSetChanged();
+            }
+        });
+        /*
+        List view handling For recepies
+         */
+        list_viewRecepies = findViewById(R.id.List);
+        arrayAdapterRecepies = new ArrayAdapter(Book.this, android.R.layout.simple_list_item_1, listRecepies);
+        list_viewRecepies.setAdapter(arrayAdapterRecepies);
+
+        list_viewRecepies.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(Book.this, Recipe.class);
+                startActivity(intent);
+            }
+        });
 
     }
 }
