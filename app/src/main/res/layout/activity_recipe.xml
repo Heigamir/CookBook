@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="8dp"
 
         android:background="#303518"
         android:fontFamily="sans-serif-black"
@@ -20,6 +20,19 @@
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="40sp"
+        app:backgroundTint="@null" />
+    <TextView
+        android:id="@+id/Notimportant"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+
+
+        android:fontFamily="sans-serif-black"
+        android:text="Składniki:"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="20sp"
         app:backgroundTint="@null" />
 
     <ListView
