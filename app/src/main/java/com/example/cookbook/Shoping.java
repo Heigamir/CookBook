@@ -23,9 +23,9 @@ import java.util.ArrayList;
 public class Shoping extends AppCompatActivity {
 
     //array list for data
-    ArrayList<String> list = new ArrayList<>();
+    public static ArrayList<String> list = new ArrayList<>();
     ListView list_view;
-    ArrayAdapter arrayAdapter;
+    public static ArrayAdapter arrayAdapter;
 
 
     @Override
