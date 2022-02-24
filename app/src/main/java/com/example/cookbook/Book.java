@@ -17,6 +17,8 @@ import java.util.ArrayList;
 
 public class Book  extends AppCompatActivity {
 
+    int difficulty=0;
+
     EditText editText;
     //array list for data
     ArrayList<String> listNames = new ArrayList<>();
@@ -30,10 +32,47 @@ public class Book  extends AppCompatActivity {
 
         editText = findViewById(R.id.editText);
 
+        Button btnEasy = findViewById(R.id.btnEasy);
+        btnEasy.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                difficulty=1;
+                Toast.makeText(getApplicationContext(),"Wybrano łatwe przepisy. ",Toast. LENGTH_SHORT).show();
+            }
+        });
+        Button btnMedium = findViewById(R.id.btnMedium);
+        btnMedium.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                difficulty=2;
+                Toast.makeText(getApplicationContext(),"Wybrano średnie przepisy.",Toast. LENGTH_SHORT).show();
+            }
+        });
+        Button btnHard = findViewById(R.id.btnHard);
+        btnHard.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                difficulty=3;
+                Toast.makeText(getApplicationContext(),"Wybrano trudne przepisy.",Toast. LENGTH_SHORT).show();
+            }
+        });
+        Button btnAllDiff = findViewById(R.id.btnAllDiff);
+        btnAllDiff.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                difficulty=0;
+                Toast.makeText(getApplicationContext(),"Wybrano wszystkie poziomy skomplikwania przepisów.",Toast. LENGTH_SHORT).show();
+            }
+        });
+
         /*
         Button handling For Sorting by all
          */
-        Button btnShowAll = (Button) findViewById(R.id.btnAll);
+        Button btnShowAll = findViewById(R.id.btnAll);
         btnShowAll.setOnClickListener(new View.OnClickListener(){
 
             @Override
@@ -43,7 +82,11 @@ public class Book  extends AppCompatActivity {
                 listNames.clear();
                 for (int i=0; i<Data.listRecipe.size(); i++)
                 {
-                    listNames.add(Data.listRecipe.get(i).name);
+                    if (difficulty==0) {
+                        listNames.add(Data.listRecipe.get(i).name);
+                    }else if(Data.listRecipe.get(i).diff==difficulty){
+                        listNames.add(Data.listRecipe.get(i).name);
+                    }
                 }
                 arrayAdapterRecepies.notifyDataSetChanged();
                 Data.listRecipe.clear();
@@ -53,14 +96,15 @@ public class Book  extends AppCompatActivity {
         /*
         Button handling For Sorting by countries
          */
-        Button btnShowCountries = (Button) findViewById(R.id.btnCountries);
+        Button btnShowCountries = findViewById(R.id.btnCountries);
         btnShowCountries.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View v) {
-
+                Data.listCountries.clear();
                 Data.getListCountries();
                 arrayAdapterCountries.notifyDataSetChanged();
+
             }
         });
         /*
@@ -77,7 +121,12 @@ public class Book  extends AppCompatActivity {
                 Data.getListRecipe();
                 for (int i=0; i<Data.listRecipe.size(); i++)
                 {
-                    if (Data.listCountries.get(position).equals(Data.listRecipe.get(i).countrie)) { listNames.add(Data.listRecipe.get(i).name);}
+                    if (Data.listCountries.get(position).equals(Data.listRecipe.get(i).countrie))
+                    { if (difficulty==0) {
+                        listNames.add(Data.listRecipe.get(i).name);
+                    }else if(Data.listRecipe.get(i).diff==difficulty){
+                        listNames.add(Data.listRecipe.get(i).name);
+                    };}
                 }
                 Data.listCountries.clear();
                 arrayAdapterCountries.notifyDataSetChanged();
@@ -89,7 +138,7 @@ public class Book  extends AppCompatActivity {
         /*
         Button handling For Sorting by ingredients
          */
-        Button btnShowIn = (Button) findViewById(R.id.btnIn);
+        Button btnShowIn = findViewById(R.id.btnIn);
         btnShowIn.setOnClickListener(new View.OnClickListener(){
 
             @Override
@@ -100,8 +149,13 @@ public class Book  extends AppCompatActivity {
                 {
                     for(int j=0; j<Data.listRecipe.get(i).ingridients.length; j++)
                     {
-                        if (editText.getText().toString().trim().equals(Data.listRecipe.get(i).ingridients[j])) {
-                            listNames.add(Data.listRecipe.get(i).name);
+                        if (editText.getText().toString().trim().equals(Data.listRecipe.get(i).ingridients[j]))
+                        {
+                            if (difficulty==0) {
+                                listNames.add(Data.listRecipe.get(i).name);
+                            }else if(Data.listRecipe.get(i).diff==difficulty){
+                                listNames.add(Data.listRecipe.get(i).name);
+                            }
                         }
                     }
                 }
@@ -129,7 +183,7 @@ public class Book  extends AppCompatActivity {
             }
         });
 
-        Button btnNavToBack = (Button) findViewById(R.id.btnBack);
+        Button btnNavToBack = findViewById(R.id.btnBack);
         btnNavToBack.setOnClickListener(new View.OnClickListener(){
 
             @Override

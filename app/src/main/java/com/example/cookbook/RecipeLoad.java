@@ -67,19 +67,19 @@ public class RecipeLoad extends AppCompatActivity {
                 int imageResource = getResources().getIdentifier(url, null, getPackageName());
                 image.setImageResource(imageResource);
 
-                if(Data.name=="Dahl"){
+                if(Data.name.equals("Dahl")){
                 text.setText(getString(R.string.dahl));
                 }
                 else{
-                    if(Data.name=="Crepe"){
+                    if(Data.name.equals("Crepe")){
                         text.setText(getString(R.string.crepe));
                     }
                     else{
-                        if(Data.name=="Kotlet Schabopwy"){
+                        if(Data.name.equals("Kotlet schabowy")){
                             text.setText(getString(R.string.kotletschabowy));
                         }
                         else{
-                            if(Data.name=="Bigos"){
+                            if(Data.name.equals("Bigos")){
                                 text.setText(getString(R.string.bigos));
                             }
                         }
@@ -92,7 +92,7 @@ public class RecipeLoad extends AppCompatActivity {
 
         }
 
-        Button btnNavToBack = (Button) findViewById(R.id.btnBack);
+        Button btnNavToBack = findViewById(R.id.btnBack);
         btnNavToBack.setOnClickListener(new View.OnClickListener(){
 
             @Override
